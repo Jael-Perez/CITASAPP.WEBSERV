@@ -1,50 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
-.tab-panel {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 4px;
-  }
-   
-  .nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {
-    border-bottom: 4px solid #fbcdcf;
-  }
-   
-  .member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
-    border: 0;
-    background: none !important;
-    color: #333333;
-  }
-   
-  .member-tabset > .nav-tabs > li.open > a > i, .member-tabset > .nav-tabs > li:hover > a > i {
-    color: #a6a6a6;
-  }
-   
-  .member-tabset > .nav-tabs > li.open .dropdown-menu, .member-tabset > .nav-tabs > li:hover .dropdown-menu {
-    margin-top: 0px;
-  }
-   
-  .member-tabset > .nav-tabs > li.active {
-    border-bottom: 4px solid #E95420;
-    position: relative;
-  }
-   
-  .member-tabset > .nav-tabs > li.active > a {
-    border: 0 !important;
-    color: #333333;
-  }
-   
-  .member-tabset > .nav-tabs > li.active > a > i {
-    color: #404040;
-  }
-   
-  .member-tabset > .tab-content {
-    margin-top: -3px;
-    background-color: #fff;
-    border: 0;
-    border-top: 1px solid #eee;
-    padding: 15px 0;
-  }
+/* Puedes agregar estilos globales a este archivo y también importar otros archivos de estilo */
 
-  .gallery{
-    height: 550px;
-  }
+.tab-panel {
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {
+  border-bottom: 4px solid #ff8080; /* Tono rosado claro */
+}
+
+.member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
+  border: 0;
+  background: none !important;
+  color: #555555; /* Gris oscuro */
+}
+
+.member-tabset > .nav-tabs > li.open > a > i, .member-tabset > .nav-tabs > li:hover > a > i {
+  color: #b3b3b3; /* Gris claro */
+}
+
+.member-tabset > .nav-tabs > li.open .dropdown-menu, .member-tabset > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+
+.member-tabset > .nav-tabs > li.active {
+  border-bottom: 4px solid #ff5722; /* Tono naranja claro */
+  position: relative;
+}
+
+.member-tabset > .nav-tabs > li.active > a {
+  border: 0 !important;
+  color: #555555; /* Gris oscuro */
+}
+
+.member-tabset > .nav-tabs > li.active > a > i {
+  color: #666666; /* Gris medio */
+}
+
+.member-tabset > .tab-content {
+  margin-top: -3px;
+  background-color: #ce8989; /* Blanco humo */
+  border: 0;
+  border-top: 1px solid #5d4646;
+  padding: 15px 0;
+}
+
+.gallery {
+  height: 550px;
+}
