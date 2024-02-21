@@ -19,7 +19,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+        services.Configure<ClaudinarySettings>(config.Getsection("ClaudinarySettings"))
         return services;
     }
 }
