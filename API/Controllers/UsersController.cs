@@ -107,4 +107,7 @@ public class UsersController : BaseApiController
 
         return BadRequest("No se pudo establecer la foto como principal");
     }
+
+    [HttpDelete("photo/{photoId}")]
+    public async Task
 }
