@@ -2,6 +2,7 @@ using System.Security.Claims;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
+using API.Helpers;
 using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -30,9 +31,12 @@ public class UsersController : BaseApiController
     #endregion
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
+    public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
     {
-        var users = await _userRepository.GetMembersAsync();
+        var users = await _userRepository.GetMembersAsync(userParams);
+
+        Response.AddPaginationHeader(new PaginationHeader(users.CurrentPage, users.PageSize,
+            users.TotalCount, users.TotalPages));
 
         return Ok(users);
     }
@@ -109,5 +113,23 @@ public class UsersController : BaseApiController
     }
 
     [HttpDelete("photo/{photoId}")]
-    public async Task
+    public async Task<ActionResult> DeletePhoto(int photoId)
+    {
+        var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+        var photo = user.Photos.FirstOrDefault(p => p.Id == photoId);
+
+        if (photo == null) return NotFound();
+        if (photo.IsMain) return BadRequest("No se puede borrar la foto principal");
+        if (photo.PublicId != null)
+        {
+            var result = await _photoService.DeletePhotoAsync(photo.PublicId);
+            if (result.Error != null) return BadRequest(result.Error.Message);
+        }
+
+        user.Photos.Remove(photo);
+
+        if (await _userRepository.SaveAllAsync()) return Ok();
+        return BadRequest("No ha sido posible borrar la foto");
+
+    }
 }
