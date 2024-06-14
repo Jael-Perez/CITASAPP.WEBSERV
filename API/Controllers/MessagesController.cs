@@ -100,6 +100,6 @@ public class MessagesController : BaseApiController
 
         if (await _messageRepository.SaveAllAsync()) return Ok();
 
-        return BadRequest("No se pudo borrar el mensaje");
+        return BadRequest("La acción de borrar el mensaje no se pudo ejecutar");
     }
 }
